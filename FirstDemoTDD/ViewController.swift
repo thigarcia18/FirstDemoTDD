@@ -20,5 +20,15 @@ class ViewController: UIViewController {
         
         return string.reduce(0) { $0 + (vowels.contains($1) ? 1 : 0) }
     }
+    
+    func makeHeadline(from string: String) -> String {
+        let words = string.components(separatedBy: " ")
+        let headlineWords = words.map { (word) -> String in
+            var mutableWord = word
+            let first = mutableWord.remove(at: mutableWord.startIndex)
+            return String(first).uppercased() + mutableWord
+        }
+        return headlineWords.joined(separator: " ")
+    }
 }
 
